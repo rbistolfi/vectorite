@@ -1,0 +1,44 @@
+<head>
+  <title>vectorite</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+</head>
+
+<body>
+  <h1>#vectorlinux-es</h1>
+  {{> controls}}
+  {{> messages}}
+  {{> lastMessageTime}}
+</body>
+
+<template name="messages">
+ <div id="messages">
+  <ul>
+  {{#each messages}}
+    <li>{{> message}}</li>
+  {{/each}}
+  </ul>
+  </div>
+</template>
+
+<template name="message">
+  <span class="user">&lt;{{user}}&gt;</span><span class="message">{{message}}</span>
+</template>
+
+<template name="lastMessageTime">
+  <p class="time">Last message received:  {{lastMessageTime}}</p>
+</template>
+
+<template name="controls">
+  <div id="datenavcontainer" class="ui-widget-header ui-corner-all">
+    <span id="datenav">
+      <input type="radio" id="radio1" name="date" checked="checked" /><label for="radio1">Today</label>
+      <input type="radio" id="radio2" name="date" /><label for="radio2">Yesterday</label>
+      <input type="radio" id="radio3" name="date" /><label for="radio3">Two days ago</label>
+    </span>
+    <span id="datefield">
+      <input type="text" id="datepicker" placeholder="UTC Date mm/dd/yyyy" />
+    </span>    
+  </div>
+</template>
