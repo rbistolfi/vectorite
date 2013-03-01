@@ -3,7 +3,7 @@
 html { color: white; margin: auto; width: 95%; background-color: #333333; }
 html, body { height: 100% }
 ul { list-style-type: none }
-div#messages { padding: 20px; width: 90%; height: auto; min-height: 300px; max-height: 700px; overflow-y: scroll }
+div#messages { padding: 20px; width: 90%; height: 300px; overflow-y: scroll }
 span#datenav { font-size: 80%; }
 div#datenavcontainer { padding: 3px; width: 520px; margin-bottom: 30px; }
 input#datepicker { border: solid #CCC 1px; border-radius: 3px; padding: 5px; width: 200px; margin-left: 15px }
