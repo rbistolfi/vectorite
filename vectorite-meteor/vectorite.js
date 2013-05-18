@@ -29,6 +29,21 @@ Date.prototype.toString = function() {
 }
 
 
+// Routing
+VectoriteRouter = Backbone.Router.extend({
+    routes: {
+        ":channel": "setChannel",
+    },
+    setChannel: function (channel) {
+        Session.set('channel', channel);
+	console.log(channel);
+    }
+});
+
+
+Router = new VectoriteRouter;
+
+
 if (Meteor.isClient) {
 
 
@@ -76,20 +91,26 @@ if (Meteor.isClient) {
 
     // return messages filtering by date - Default to all since today
     Template.messages.messages = function () {
-        var query;
+        var query = { channel: Session.get("channel") };
         if (Session.equals("date", undefined)) {
-            query = {date: {$gte: new Date().toString()}};
+            query.date = {$gte: new Date().toString()};
         } 
         else {
-            query = {date: Session.get("date")};
+            query.date = Session.get("date");
         }
         return Messages.find(query);
+    }
+
+    // Pass name of the channel
+    Template.header.channel = function () {
+	return Session.get("channel");
     }
 
     // pass last message time
     Template.lastMessageTime.lastMessageTime = function() {
         return Session.get("lastMessageTime");
     }
+
 
     // bind controls 
     Template.controls.events({
@@ -117,6 +138,7 @@ if (Meteor.isClient) {
     // scroll also in startup
     Meteor.startup(function() {
         scrollMessagesDivDown();
+	Backbone.history.start({pushState: true});
     });
     // and when template is rendered
     Template.messages.rendered = scrollMessagesDivDown;

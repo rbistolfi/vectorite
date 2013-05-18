@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <h1>#vectorlinux-es</h1>
+  {{> header}}
   {{> controls}}
   {{> messages}}
   {{> lastMessageTime}}
@@ -28,6 +28,10 @@
 
 <template name="lastMessageTime">
   <p class="time">Last message received:  {{lastMessageTime}}</p>
+</template>
+
+<template name="header">
+  <h1>#{{channel}}</h1>
 </template>
 
 <template name="controls">
