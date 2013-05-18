@@ -1,11 +1,13 @@
 /* CSS declarations go here */
 
 html { color: white; margin: auto; width: 95%; background-color: #333333; }
-html, body { height: 100% }
+body { margin-top: 120px }
 ul { list-style-type: none }
-div#messages { padding: 20px; width: 90%; height: 300px; overflow-y: scroll }
+div#header { position: fixed; top: 0px; left: auto; background-color: #333333; width: 100%; box-shadow: 5px 5px 5px #333333}
+div#messages { margin-top: 10px; margin-bottom: 40px; padding: 20px; width: 90%; }
+div#footer { position: fixed; bottom: 0px; left: auto; background-color: #333333; width: 100%; box-shadow: 5px -5px 5px #333333 }
 span#datenav { font-size: 80%; }
-div#datenavcontainer { padding: 3px; width: 520px; margin-bottom: 30px; }
+div#datenavcontainer { padding: 3px; margin-bottom: 20px;  width: 540px; float: right; }
 input#datepicker { border: solid #CCC 1px; border-radius: 3px; padding: 5px; width: 200px; margin-left: 15px }
 .user { color: cyan; font-size: 90%; margin-right: 12px }
 .time { color: gray; font-size: 80%; }
