@@ -35,7 +35,7 @@ VectoriteRouter = Backbone.Router.extend({
         ":channel": "setChannel",
     },
     setChannel: function (channel) {
-        Session.set('channel', channel);
+        Session.set('channel', '#'+channel);
 	console.log(channel);
     }
 });
@@ -73,7 +73,7 @@ if (Meteor.isClient) {
    
     // helper for scrolling down for showing new messages
     var scrollMessagesDivDown = function() {
-        $("#messages").scrollTop(99999);
+        $(document).scrollTop(99999);
     }
 
     // helper for setting last msg time
