@@ -6,8 +6,10 @@
 </head>
 
 <body>
-  {{> header}}
-  {{> controls}}
+  <div id="header">
+    {{> header}}
+    {{> controls}}
+  </div>
   {{> messages}}
   {{> lastMessageTime}}
 </body>
@@ -33,7 +35,7 @@
 </template>
 
 <template name="header">
-  <h1>#{{channel}}</h1>
+  <h1>{{channel}}</h1>
 </template>
 
 <template name="controls">
